@@ -120,8 +120,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/uninstall-shell-extens
   ```
 
   该索引里的来源是 git（固定到某个 commit），安装不依赖 npm。
-- 也可以直接按仓库安装：`dsh plugin add github:lczment/dsh-window`。
-- `market/lczment__dsh-window.yml` 是官方列表的条目草稿；仓库创建满 24 小时后按 `contributing.md` 提 PR（要求 `dsh.bundle` 清单、`dsh-plugin` topic、真实代码）。
+- 也可以直接按仓库安装：`dsh plugin add github:lczment/dsh-window`，或下载 [Release v0.1.0](https://github.com/lczment/dsh-window/releases/tag/v0.1.0) 的 `dsh-window.tgz`。
+- 官方列表的条目已提交：[awesome-dsh-plugin#12113](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/12113)（`market/lczment__dsh-window.yml`）。仓库创建未满 24 小时时会先被年龄门槛挡住，门槛会自动重跑通过，无需重复提交。
 
 ## 限制 / Limitations
 
