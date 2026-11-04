@@ -110,6 +110,19 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/uninstall-shell-extens
 
 再在 **设置 → 插件** 里移除本插件。卸载脚本会恢复 `app.asar.orig`、删除 `resources/app` 与 `resources/dsh-window-extension`。
 
+## 插件市场 / Market listing
+
+- 官方货架（[awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)）的 `docs/index.json` 只收录已发布到 npm 的插件；本仓库没有 npm 包，所以条目会出现在列表页，但不会进入官方索引。
+- 想直接在 **插件 → 发现** 里看到它，把下面这个索引地址加进市场来源（`@deepseek-ai/dsh-plugin-market` 的 `indexes` 配置，可加多个）：
+
+  ```
+  https://raw.githubusercontent.com/lczment/dsh-window/main/index.json
+  ```
+
+  该索引里的来源是 git（固定到某个 commit），安装不依赖 npm。
+- 也可以直接按仓库安装：`dsh plugin add github:lczment/dsh-window`。
+- `market/lczment__dsh-window.yml` 是官方列表的条目草稿；仓库创建满 24 小时后按 `contributing.md` 提 PR（要求 `dsh.bundle` 清单、`dsh-plugin` topic、真实代码）。
+
 ## 限制 / Limitations
 
 - 仅 Windows：壳扩展依赖 DSH 的 win32 托盘、`titleBarOverlay` 与 PowerShell 安装脚本。

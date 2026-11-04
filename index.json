@@ -1,0 +1,44 @@
+{
+  "format": 1,
+  "title": {
+    "en": "DSH Window",
+    "zh": "DSH Window"
+  },
+  "description": {
+    "en": "Window close behaviour and child windows for DeepSeek Harness Desktop.",
+    "zh": "DeepSeek Harness 桌面端的窗口关闭行为与多窗口。"
+  },
+  "plugins": [
+    {
+      "name": "@local/dsh-window",
+      "title": {
+        "en": "DSH Window",
+        "zh": "DSH Window"
+      },
+      "description": {
+        "en": "Close confirmation for DeepSeek Harness Desktop: minimise to tray or quit, remember the choice, change it in Settings, and open a session or workspace in its own window.",
+        "zh": "DeepSeek Harness 桌面端关闭确认：最小化到后台或完全退出，可记住选择并在设置中修改，也可把会话或工作区开进独立窗口。"
+      },
+      "icon": "./icon.svg",
+      "author": "lczment",
+      "homepage": "https://github.com/lczment/dsh-window",
+      "repository": {
+        "url": "https://github.com/lczment/dsh-window"
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1793792395,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/lczment/dsh-window",
+            "commit": "5a1c1414271371754ed6d6bd794de294e649e9b4"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        }
+      ]
+    }
+  ]
+}
