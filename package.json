@@ -1,0 +1,57 @@
+{
+  "name": "@local/dsh-window",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Choice on window close (background or quit) and per-session / per-workspace child windows for DeepSeek Harness Desktop.",
+  "license": "MIT",
+  "author": "lczment",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "desktop",
+    "multi-window",
+    "tray",
+    "close-behavior"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lczment/dsh-window.git"
+  },
+  "homepage": "https://github.com/lczment/dsh-window#readme",
+  "bugs": {
+    "url": "https://github.com/lczment/dsh-window/issues"
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.5"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "shell/install.mjs",
+    "tools/*.mjs",
+    "tools/*.ps1",
+    "tools/*.cmd",
+    "tools/*.vbs",
+    "docs/*.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}

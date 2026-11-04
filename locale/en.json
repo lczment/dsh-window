@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Windows & multi-window",
+    "description": "Choose whether closing the main window quits or keeps running in the background, and open agents or workspaces in separate windows."
+  }
+}

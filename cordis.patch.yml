@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-window
+      name: '@local/dsh-window'

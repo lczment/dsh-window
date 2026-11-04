@@ -1,0 +1,7 @@
+node_modules/
+*.log
+*.orig
+.complete-shell-extension.started
+.dsh-window-pending
+install-shell-extension.log
+probe-out.log
