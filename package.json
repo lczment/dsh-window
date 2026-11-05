@@ -1,7 +1,6 @@
 {
-  "name": "@local/dsh-window",
+  "name": "@lczment/dsh-window",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
   "description": "Choice on window close (background or quit) and per-session / per-workspace child windows for DeepSeek Harness Desktop.",
   "license": "MIT",

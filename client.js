@@ -7,7 +7,7 @@
  * the connection is available.
  */
 window.__ModuleLoader__.load({
-  id: "@local/dsh-window",
+  id: "@lczment/dsh-window",
   factory(require) {
     const React = require("react");
     const h = React.createElement;

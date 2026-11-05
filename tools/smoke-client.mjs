@@ -74,7 +74,7 @@ globalThis.window = {
   removeEventListener() {},
   __ModuleLoader__: {
     load(entry) {
-      if (entry.id !== "@local/dsh-window") throw new Error(`unexpected id ${entry.id}`);
+      if (entry.id !== "@lczment/dsh-window") throw new Error(`unexpected id ${entry.id}`);
       const mod = entry.factory((name) => {
         if (name === "react") return ReactStub;
         throw new Error(`unexpected require(${name})`);

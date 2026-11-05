@@ -10,7 +10,7 @@
   },
   "plugins": [
     {
-      "name": "@local/dsh-window",
+      "name": "@lczment/dsh-window",
       "title": {
         "en": "DSH Window",
         "zh": "DSH Window"
