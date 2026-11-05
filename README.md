@@ -1,16 +1,14 @@
 # DSH Window
 
+[English](README.en.md) | 简体中文
+
 给 **DeepSeek Harness Desktop** 加两件事：关闭窗口时由你决定「最小化到后台」还是「完全退出」，以及把某个会话 / 整个工作区丢进独立子窗口。
 
-A small add-on for **DeepSeek Harness Desktop**: choose what closing the window does, and open a session or a whole workspace in its own child window.
+> 这是第三方扩展，不是 DeepSeek 官方组件。它会修改本机 DeepSeek Harness 的 `resources/app`（见「安装」），升级 DSH 后需要重跑一次安装脚本。
 
-> 这是第三方扩展，不是 DeepSeek 官方组件。它会修改本机 DeepSeek Harness 的 `resources/app`（见“安装”），升级 DSH 后需要重跑一次安装脚本。 / This is a third-party add-on. It patches the local DeepSeek Harness `resources/app` (see *Install*) and must be re-applied after a DSH update.
+## 功能
 
----
-
-## 功能 / Features
-
-| | |
+| 功能 | 说明 |
 |---|---|
 | **关闭行为可选** | 关闭主窗口时弹出与主界面同风格的对话框：最小化到后台 / 完全退出 / 取消，可勾选「记住我的选择」。 |
 | **设置页** | 设置 → 「窗口与多开」：三个选项（每次询问 / 最小化到后台 / 完全退出），立即生效，和关闭对话框共用同一份配置。 |
@@ -19,20 +17,18 @@ A small add-on for **DeepSeek Harness Desktop**: choose what closing the window 
 | **工作区整窗** | 设置页里每个工作区都有 **Open workspace**，把整个工作区开进新窗口。 |
 | **后台保活** | 选「最小化到后台」后进程与 Agent 继续运行，托盘图标可重新打开或退出。 |
 | **悬停动效** | 插件内按钮带 120ms 过渡；系统开启「减少动画」时自动关闭位移效果。 |
-| **无黑框** | 安装/升级收尾通过隐藏的 `wscript` 启动，不会闪控制台窗口。 |
+| **无黑框** | 安装 / 升级收尾通过隐藏的 `wscript` 启动，不会闪控制台窗口。 |
 
-English: a themed close-confirmation dialog (minimize to tray / quit / cancel, with *remember my choice*), a Settings section to change that choice, a sidebar shortcut, a per-session hover button, per-workspace windows, and a windowless installer helper.
-
-## 组成 / What is inside
+## 组成
 
 DSH 插件运行在 Host（Node 子进程）与 Web 前端里，**没有**窗口或退出的 IPC。因此本项目由两部分组成：
 
-1. **插件**（`index.js` / `client.js`，本仓库根目录）— 设置页、侧栏按钮、会话行按钮、关闭对话框的 UI 与 Host 路由。
+1. **插件**（`index.js` / `client.js`，仓库根目录）— 设置页、侧栏按钮、会话行按钮、关闭对话框的 UI 与 Host 路由。
 2. **壳扩展**（`shell/install.mjs`）— 注入 Electron 主进程，接管窗口关闭、创建子窗口、读写共享配置。安装脚本在 `tools/`。
 
 只装插件：设置页与多开按钮会出现，但顶部会提示壳扩展未安装，关闭窗口仍走 DSH 原行为。
 
-## 安装 / Install
+## 安装
 
 前置：Windows、DeepSeek Harness Desktop `0.2.1-rc.5` 或更新、Node.js 可用（安装脚本用）。
 
@@ -76,7 +72,7 @@ $env:DSH_DESKTOP_ROOT = 'E:\Apps\DeepSeek Harness'
 - 关闭主窗口 → 出现与主界面同风格的对话框。
 - 侧栏会话悬停 → 出现窗口图标；点击后新窗口加载该会话。
 
-## 设置与行为 / Settings
+## 设置与行为
 
 配置文件：`%USERPROFILE%\.dsh\desktop\window-policy.json`（`DSH_HOME` 存在时用 `$DSH_HOME\desktop\window-policy.json`）。
 
@@ -90,7 +86,7 @@ $env:DSH_DESKTOP_ROOT = 'E:\Apps\DeepSeek Harness'
 
 关闭对话框勾选「记住我的选择」会写入同一文件；设置页修改后立即广播给所有窗口。
 
-## 更新 DSH 之后 / After a DSH update
+## 更新 DSH 之后
 
 DSH 升级会带回新的 `resources/app.asar`，旧补丁随之失效（`resources/app` 会被忽略或覆盖）。重新执行第 2 步即可：
 
@@ -101,7 +97,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/register-completion-ta
 
 插件部分通常不需要重装。
 
-## 卸载 / Uninstall
+## 卸载
 
 ```powershell
 # 先退出 DeepSeek Harness
@@ -110,10 +106,10 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/uninstall-shell-extens
 
 再在 **设置 → 插件** 里移除本插件。卸载脚本会恢复 `app.asar.orig`、删除 `resources/app` 与 `resources/dsh-window-extension`。
 
-## 插件市场 / Market listing
+## 插件市场
 
 - 官方货架（[awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)）的 `docs/index.json` 只收录已发布到 npm 的插件；本仓库没有 npm 包，所以条目会出现在列表页，但不会进入官方索引。
-- 想直接在 **插件 → 发现** 里看到它，把下面这个索引地址加进市场来源（`@deepseek-ai/dsh-plugin-market` 的 `indexes` 配置，可加多个）：
+- 想直接在 **插件 → 发现** 里看到它，打开「管理索引源…」并添加：
 
   ```
   https://raw.githubusercontent.com/lczment/dsh-window/main/index.json
@@ -123,7 +119,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/uninstall-shell-extens
 - 也可以直接按仓库安装：`dsh plugin add github:lczment/dsh-window`，或下载 [Release v0.1.0](https://github.com/lczment/dsh-window/releases/tag/v0.1.0) 的 `dsh-window.tgz`。
 - 官方列表的条目已提交：[awesome-dsh-plugin#12113](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/12113)（`market/lczment__dsh-window.yml`）。仓库创建未满 24 小时时会先被年龄门槛挡住，门槛会自动重跑通过，无需重复提交。
 
-## 限制 / Limitations
+## 限制
 
 - 仅 Windows：壳扩展依赖 DSH 的 win32 托盘、`titleBarOverlay` 与 PowerShell 安装脚本。
 - 壳扩展是**对本机安装目录的补丁**，不是官方扩展点；DSH 升级后要重跑。
@@ -131,7 +127,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/uninstall-shell-extens
 - 应用正在运行时 `app.asar` 被占用，所以切换必须等退出后由收尾任务完成。
 - 关闭对话框依赖前端已加载；前端尚未就绪时回退到系统原生对话框。
 
-## 开发 / Development
+## 开发
 
 ```
 dsh-window/
@@ -149,6 +145,6 @@ node tools/smoke-client.mjs      # 用桩环境渲染 client.js，校验 4 个�
 node --check client.js index.js shell/install.mjs
 ```
 
-## 许可 / License
+## 许可
 
 MIT，见 [LICENSE](LICENSE)。

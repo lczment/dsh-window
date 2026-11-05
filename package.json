@@ -38,6 +38,7 @@
     "locale/*.json",
     "icon.svg",
     "README.md",
+    "README.en.md",
     "shell/install.mjs",
     "tools/*.mjs",
     "tools/*.ps1",
