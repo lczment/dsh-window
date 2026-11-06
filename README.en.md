@@ -57,6 +57,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/register-completion-ta
 # then: tray icon → Quit. The app comes back with the extension within a minute
 ```
 
+> When installed from the market / npm, the package lives at `%USERPROFILE%\.dsh\profiles\desktop\node_modules\@lczment\dsh-window` (or `%DSH_HOME%\profiles\desktop\node_modules\@lczment\dsh-window`); run the same commands from that directory instead of the repository root.
+
 `--stage-only` unpacks `resources/app.asar` into `resources/app`, overlays `app.asar.unpacked`, patches `lib/main.js` (close hook, child-window WebSocket allowlist, child-window IPC), adds the `window.dshWindow` bridge to `lib/preload-app.cjs`, and waits for the app to exit before renaming `app.asar` to `app.asar.orig`.
 
 If the app is not in the default `D:\DeepSeek Harness`, set the root first:

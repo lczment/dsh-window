@@ -57,6 +57,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/register-completion-ta
 # 然后：托盘图标 → 退出。约一分钟内应用会带着扩展重启
 ```
 
+> 通过市场 / npm 安装时，插件位于 `%USERPROFILE%\.dsh\profiles\desktop\node_modules\@lczment\dsh-window`（设置了 `DSH_HOME` 则在 `%DSH_HOME%\profiles\desktop\node_modules\@lczment\dsh-window`），把上面命令里的 `tools/` 换成该目录下的 `tools/` 即可。
+
 `--stage-only` 会：解包 `resources/app.asar` → `resources/app`、叠加 `app.asar.unpacked`、给 `lib/main.js` 打补丁（关闭钩子、子窗口 WebSocket 白名单、子窗口 IPC 放行）、给 `lib/preload-app.cjs` 加 `window.dshWindow` 桥，然后等应用退出时把 `app.asar` 改名为 `app.asar.orig`。
 
 安装目录不是默认的 `D:\DeepSeek Harness` 时，先设置环境变量：
