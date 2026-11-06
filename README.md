@@ -34,11 +34,12 @@ DSH 插件运行在 Host（Node 子进程）与 Web 前端里，**没有**窗口
 
 ### 1. 安装插件
 
-任选一种：
+已发布到 npm：`@lczment/dsh-window@0.1.0`。任选一种：
 
-- 在 **设置 → 插件** 里从市场 / 索引安装本仓库（读取根目录的 `package.json` 与 `cordis.patch.yml`）；
-- 或把仓库放到 DSH profile 可以解析的位置后，用 DSH 的 `plugin_manager` / `dsh plugin` 安装本目录；
-- 本地开发时也可直接把目录链接到 `%USERPROFILE%\.dsh\profiles\desktop\node_modules\@local\dsh-window`。
+- 市场 / 命令行安装：`dsh plugin add @lczment/dsh-window`，或在 **设置 → 插件 → 发现** 里搜索 DSH Window；
+- 官方列表条目已提交 [awesome-dsh-plugin#12113](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/12113)，索引构建后进入默认货架；
+- 也可以直接从仓库安装：`dsh plugin add github:lczment/dsh-window`；
+- 本地开发时把目录链接到 `%USERPROFILE%\.dsh\profiles\desktop\node_modules\@lczment\dsh-window`。
 
 安装后打开 **设置 → 窗口与多开**，应能看到本页。
 
@@ -106,18 +107,16 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/uninstall-shell-extens
 
 再在 **设置 → 插件** 里移除本插件。卸载脚本会恢复 `app.asar.orig`、删除 `resources/app` 与 `resources/dsh-window-extension`。
 
-## 插件市场
-
-- 官方货架（[awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)）的 `docs/index.json` 只收录已发布到 npm 的插件；本仓库没有 npm 包，所以条目会出现在列表页，但不会进入官方索引。
-- 想直接在 **插件 → 发现** 里看到它，打开「管理索引源…」并添加：
+- 已发布到 npm：[`@lczment/dsh-window`](https://www.npmjs.com/package/@lczment/dsh-window)（0.1.0）。官方货架下一次构建索引时会收录。
+- 想立刻在 **插件 → 发现** 里看到它，打开「管理索引源…」并添加：
 
   ```
   https://raw.githubusercontent.com/lczment/dsh-window/main/index.json
   ```
 
-  该索引里的来源是 git（固定到某个 commit），安装不依赖 npm。
+  该索引使用 npm 源，安装走 `@lczment/dsh-window`。
 - 也可以直接按仓库安装：`dsh plugin add github:lczment/dsh-window`，或下载 [Release v0.1.0](https://github.com/lczment/dsh-window/releases/tag/v0.1.0) 的 `dsh-window.tgz`。
-- 官方列表的条目已提交：[awesome-dsh-plugin#12113](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/12113)（`market/lczment__dsh-window.yml`）。仓库创建未满 24 小时时会先被年龄门槛挡住，门槛会自动重跑通过，无需重复提交。
+- 官方列表条目已提交：[awesome-dsh-plugin#12113](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/12113)（`market/lczment__dsh-window.yml`）。
 
 ## 限制
 

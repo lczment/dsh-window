@@ -28,11 +28,9 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1793869421,
+          "publishTimestamp": 1793937133,
           "source": {
-            "type": "git",
-            "url": "https://github.com/lczment/dsh-window",
-            "commit": "93ad01b829c987894c3f919f59b329648fa39f41"
+            "type": "npm"
           },
           "engines": {
             "dsh": ">=0.2.1-rc.5"

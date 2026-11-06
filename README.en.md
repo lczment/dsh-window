@@ -34,11 +34,12 @@ Requires Windows, DeepSeek Harness Desktop `0.2.1-rc.5` or newer, and Node.js (f
 
 ### 1. Install the plugin
 
-Pick one:
+Published on npm: `@lczment/dsh-window@0.1.0`. Pick one:
 
-- Install this repository from the market / an index in **Settings → Plugins** (it reads the root `package.json` and `cordis.patch.yml`);
-- Or put the repository where the DSH profile can resolve it and install the directory with `plugin_manager` / `dsh plugin`;
-- For local development, link the directory to `%USERPROFILE%\.dsh\profiles\desktop\node_modules\@local\dsh-window`.
+- Install from the market / CLI: `dsh plugin add @lczment/dsh-window`, or search "DSH Window" in **Settings → Plugins → Discover**;
+- The catalog entry is submitted as [awesome-dsh-plugin#12113](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/12113) and appears on the default shelf once the index is rebuilt;
+- Or install straight from the repository: `dsh plugin add github:lczment/dsh-window`;
+- For local development, link the directory to `%USERPROFILE%\.dsh\profiles\desktop\node_modules\@lczment\dsh-window`.
 
 Then open **Settings → Windows & multi-window**; the page should be there.
 
@@ -106,18 +107,16 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/uninstall-shell-extens
 
 Then remove the plugin in **Settings → Plugins**. The uninstall script restores `app.asar.orig` and removes `resources/app` and `resources/dsh-window-extension`.
 
-## Market listing
-
-- The official catalog ([awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)) only indexes npm-published plugins in its `docs/index.json`; this repository has no npm package, so it appears on the list page but not in that index.
+- Published on npm: [`@lczment/dsh-window`](https://www.npmjs.com/package/@lczment/dsh-window) (0.1.0). The official catalog picks it up on its next index build.
 - To see it in **Plugins → Discover** right away, open "Manage index sources…" and add:
 
   ```
   https://raw.githubusercontent.com/lczment/dsh-window/main/index.json
   ```
 
-  Entries in that index use a git source pinned to a commit, so installation does not depend on npm.
+  That index uses the npm source and installs `@lczment/dsh-window`.
 - You can also install straight from the repository: `dsh plugin add github:lczment/dsh-window`, or download `dsh-window.tgz` from [Release v0.1.0](https://github.com/lczment/dsh-window/releases/tag/v0.1.0).
-- The catalog entry is submitted: [awesome-dsh-plugin#12113](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/12113) (`market/lczment__dsh-window.yml`). While the repository is younger than 24 hours, the age gate holds it; the gate re-runs by itself, so no resubmission is needed.
+- The catalog entry is submitted: [awesome-dsh-plugin#12113](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/12113) (`market/lczment__dsh-window.yml`).
 
 ## Limitations
 
